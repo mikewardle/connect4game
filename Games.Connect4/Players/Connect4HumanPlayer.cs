@@ -4,7 +4,7 @@ namespace Games.Connect4.Players
 {
 	public class Connect4HumanPlayer :Connect4Player
 	{
-		internal override int GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLineToDisplay, int minValue, int maxValue)
+		public override int GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLineToDisplay, int minValue, int maxValue)
 		{
 			var columnSelected =  QueryPlayer();
 			int column = 0;

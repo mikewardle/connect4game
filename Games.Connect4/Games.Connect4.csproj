@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connect4Board.cs" />
     <Compile Include="Connect4Game.cs" />
+    <Compile Include="Counter.cs" />
     <Compile Include="Players\Connect4ComputerPlayer.cs" />
     <Compile Include="Players\Connect4HumanPlayer.cs" />
     <Compile Include="Players\Connect4Player.cs" />

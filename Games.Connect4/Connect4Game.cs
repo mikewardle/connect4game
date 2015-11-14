@@ -8,13 +8,11 @@ namespace Games.Connect4
 {
 	public class Connect4Game :IGame
 	{
-		public int Rows {get; private set;}
-		public int Columns { get; private set; }
 		public Connect4Player Player1 { get; private set; }
 		public Connect4Player Player2 { get; private set; }
 		private Queue<Connect4Player> PlayerQueue = new Queue<Connect4Player>();
 		private List<string> messages = new List<string>();
-
+		private Connect4Board Board { get; set; }
 		public Action ClearDisplay { get; set; }
 		public Action<object> WriteLineToDisplay { get; set; }
 		public Func<string> QueryPlayer { get; set; }
@@ -26,9 +24,8 @@ namespace Games.Connect4
 			if (columns < 5 || columns > 9)
 				throw new InvalidGameConfigurationException();
 			
-			// TODO: Complete member initialization
-			Rows = rows;
-			Columns = columns;
+		
+			Board = new Connect4Board(rows, columns);
 			Player1 = player1 as Connect4Player;
 			Player2 = player2 as Connect4Player;
 
@@ -80,8 +77,8 @@ namespace Games.Connect4
 			var player = PlayerQueue.Dequeue();
 
 			//process the turn, that is ask where to place the counter
-			WriteLineToDisplay(String.Format("Player {0}, please select a columns to add a counter to (1-{1}).", player.PlayerNumber, Columns));
-			var columnSelected = player.GetColumnSelected(QueryPlayer, WriteLineToDisplay, 1, Columns);
+			WriteLineToDisplay(String.Format("Player {0}, please select a columns to add a counter to (1-{1}).", player.PlayerNumber, Board.ColumnCount));
+			var columnSelected = player.GetColumnSelected(QueryPlayer, WriteLineToDisplay, 1, Board.ColumnCount);
 			
 			//todo -  add it to the board
 

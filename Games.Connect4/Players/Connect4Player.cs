@@ -7,6 +7,6 @@ namespace Games.Connect4.Players
 	{
 		public int PlayerNumber { get; set; }
 
-		internal abstract int GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLineToDisplay, int minValue, int maxValue);
+		public abstract int GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLineToDisplay, int minValue, int maxValue);
 	}
 }
