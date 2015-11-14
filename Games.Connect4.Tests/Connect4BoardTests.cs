@@ -44,6 +44,17 @@ namespace Games.Connect4.Tests
 
 		}
 
+		[TestMethod]
+		public void AddMultipleCounters()
+		{
+			var board = new Connect4Board(5, 2);
+			board.AddCounter(1, 1);
+			board.AddCounter(2, 1);
+			board.AddCounter(3, 2);
+			Assert.AreEqual(1, board.Columns[0][0].PlayerIndex);
+			Assert.AreEqual(2, board.Columns[0][1].PlayerIndex);
+			Assert.AreEqual(3, board.Columns[1][0].PlayerIndex);
+		}
 
 	}
 }
