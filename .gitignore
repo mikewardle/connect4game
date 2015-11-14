@@ -1,0 +1,5 @@
+Games.Connect4/obj/*
+Games.Core/obj/*
+TombolaGames.CMD/bin/*
+TombolaGames.CMD/obj/*
+*.suo
