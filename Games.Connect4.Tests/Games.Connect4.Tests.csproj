@@ -57,6 +57,7 @@
     <Compile Include="Connect4GameCreationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Connect4GameFlowTests.cs" />
+    <Compile Include="Connect4BoardTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Games.Connect4\Games.Connect4.csproj">
