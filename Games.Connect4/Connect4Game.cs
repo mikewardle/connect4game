@@ -78,9 +78,10 @@ namespace Games.Connect4
 
 			//process the turn, that is ask where to place the counter
 			WriteLineToDisplay(String.Format("Player {0}, please select a columns to add a counter to (1-{1}).", player.PlayerNumber, Board.ColumnCount));
-			var columnSelected = player.GetColumnSelected(QueryPlayer, WriteLineToDisplay, 1, Board.ColumnCount);
+			var columnSelected = player.GetColumnSelected(QueryPlayer, WriteLineToDisplay, Board);
 			
 			//todo -  add it to the board
+			Board.AddCounter(player.PlayerNumber, columnSelected);
 
 			//finally add the player back to the queue
 			PlayerQueue.Enqueue(player);

@@ -24,12 +24,12 @@ namespace Games.Connect4.Tests
 			writer.Expect(x => x.WriteLineToDisplay(Arg<object>.Is.Anything));
 			//expect a query ofplayer one
 			player1.Expect(x => x.GetColumnSelected(Arg<Func<string>>.Is.Anything, 
-													Arg<Action<object>>.Is.Anything, 
-													Arg<int>.Is.Anything, Arg<int>.Is.Equal(7))).Return(1);
+													Arg<Action<object>>.Is.Anything,
+													Arg<Connect4Board>.Is.Anything)).Return(1);
 			//expect no query pf player 2
 			player2.Expect(x => x.GetColumnSelected(Arg<Func<string>>.Is.Anything, 
 													Arg<Action<object>>.Is.Anything, 
-													Arg<int>.Is.Anything, Arg<int>.Is.Equal(7)))
+													Arg<Connect4Board>.Is.Anything))
 													.Repeat.Never().Return(1);
 
 			

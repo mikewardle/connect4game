@@ -7,5 +7,6 @@ namespace Games.Connect4
 {
 	public class Counter
 	{
+		public int PlayerIndex { get; set; }
 	}
 }
