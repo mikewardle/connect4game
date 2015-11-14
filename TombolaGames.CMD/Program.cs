@@ -33,13 +33,15 @@ namespace TombolaGames.CMD
 
 			Console.WriteLine("Would you like to play a 1 or 2 player game?");
 			int numberOfPlayers = -1;
-			while (numberOfPlayers < 1 || numberOfPlayers > 2)
+			while (numberOfPlayers < 0 || numberOfPlayers > 2)
 			{
 				Console.WriteLine("Please enter 1 or 2.");
 				Int32.TryParse(Console.ReadLine(), out numberOfPlayers);
 			}
 			IGame game;
-			if (numberOfPlayers == 1)
+			if (numberOfPlayers ==0)
+				game = new Connect4Game(7, 6, new Connect4ComputerPlayer(), new Connect4ComputerPlayer());
+			else if (numberOfPlayers == 1)
 				game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4ComputerPlayer());
 			else
 				game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4HumanPlayer());
