@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connect4Game.cs" />
+    <Compile Include="Players\Connect4ComputerPlayer.cs" />
+    <Compile Include="Players\Connect4HumanPlayer.cs" />
+    <Compile Include="Players\Connect4Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

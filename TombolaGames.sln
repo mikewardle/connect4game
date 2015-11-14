@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Core", "Games.Core\Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Connect4", "Games.Connect4\Games.Connect4.csproj", "{362BFEC4-B522-4896-9BB1-E8C5032E2C55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Connect4.Tests", "Games.Connect4.Tests\Games.Connect4.Tests.csproj", "{83117302-7ECC-49AE-87F2-A7E8BC209E79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{362BFEC4-B522-4896-9BB1-E8C5032E2C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{362BFEC4-B522-4896-9BB1-E8C5032E2C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{362BFEC4-B522-4896-9BB1-E8C5032E2C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83117302-7ECC-49AE-87F2-A7E8BC209E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83117302-7ECC-49AE-87F2-A7E8BC209E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83117302-7ECC-49AE-87F2-A7E8BC209E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83117302-7ECC-49AE-87F2-A7E8BC209E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
