@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Games.Connect4\Games.Connect4.csproj">
+      <Project>{362bfec4-b522-4896-9bb1-e8c5032e2c55}</Project>
+      <Name>Games.Connect4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Games.Core\Games.Core.csproj">
+      <Project>{0392cfcf-e55a-4cdf-bb84-ab84178a6dcd}</Project>
+      <Name>Games.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
