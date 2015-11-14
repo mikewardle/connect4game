@@ -3,8 +3,7 @@ namespace Games.Core
 {
 	public interface IGame
 	{
-		bool Finished { get; set; }
-
+		bool Finished { get; }
 		void Display();
 
 		void ProcessNextPlayer();

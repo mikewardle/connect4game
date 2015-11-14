@@ -1,6 +1,7 @@
 ﻿using Games.Connect4.Players;
 using Games.Core;
 using Games.Core.Exceptions;
+using System;
 using System.Collections.Generic;
 
 namespace Games.Connect4
@@ -12,6 +13,11 @@ namespace Games.Connect4
 		public Connect4Player Player1 { get; private set; }
 		public Connect4Player Player2 { get; private set; }
 		private Queue<Connect4Player> PlayerQueue = new Queue<Connect4Player>();
+		private List<string> messages = new List<string>();
+
+		public Action ClearDisplay { get; set; }
+		public Action<object> WriteLineToDisplay { get; set; }
+		public Func<string> QueryPlayer { get; set; }
 
 		public Connect4Game(int rows, int columns, IPlayer player1, IPlayer player2)
 		{
@@ -26,8 +32,12 @@ namespace Games.Connect4
 			Player1 = player1 as Connect4Player;
 			Player2 = player2 as Connect4Player;
 
+			
 			if (Player1 == null || Player2 == null)
 				throw new InvalidPlayerTypeException();
+			Player1.PlayerNumber = 1;
+			Player2.PlayerNumber = 2;
+
 
 			PlayerQueue.Enqueue(Player1);
 			PlayerQueue.Enqueue(Player2);
@@ -45,8 +55,23 @@ namespace Games.Connect4
 
 		public void Display()
 		{
-			//need to be able to inject the display and perform it somehow
-			throw new System.NotImplementedException();
+			ClearDisplay();
+			DisplayBoard();
+			DisplayMessages();
+		}
+
+		private void DisplayMessages()
+		{
+			foreach(var message in messages)
+			{
+				WriteLineToDisplay(message);
+			}
+		}
+
+		private void DisplayBoard()
+		{
+			//need to loop through all rows and diplay them
+			
 		}
 
 		public void ProcessNextPlayer()
@@ -54,7 +79,16 @@ namespace Games.Connect4
 			//get the player
 			var player = PlayerQueue.Dequeue();
 
-			//todo - process the turn, that is ask where to place the counter and add it to the board
+			//process the turn, that is ask where to place the counter
+			WriteLineToDisplay(String.Format("Player {0}, please select a columns to add a counter to (1-{1}).", player.PlayerNumber, Columns));
+			var columnSelected = player.GetColumnSelected(QueryPlayer);
+			int column = 0;
+			while (!Int32.TryParse(columnSelected, out column) || column <1 || column >Columns)
+			{
+				WriteLineToDisplay(String.Format("Please enter a number between 1 and {0}", Columns));
+				columnSelected = player.GetColumnSelected(QueryPlayer);
+			}
+			//todo -  add it to the board
 
 			//finally add the player back to the queue
 			PlayerQueue.Enqueue(player);
