@@ -58,6 +58,28 @@ namespace Games.Connect4
 				return " ";
 			return x == 1 ? "x" : "o";
 		}
+
+		internal int GetPlayerWithFourInRow()
+		{
+			//first check all columns
+			foreach (var column in Columns)
+			{
+				var index = column.Select(x => x.PlayerIndex).Get4InRowFromEnumerable();
+				if (index >0 )
+					return index;
+			}
+			//now check all rows
+			for (int i = RowCount - 1; i >= 0; i--)
+			{
+				var index = Columns.Select(x => x.Skip(i).First().PlayerIndex).Get4InRowFromEnumerable();
+				if (index > 0)
+					return index;
+			}
+			//todo check diagonals
+			return 0;
+		}
+
+		
 	}
 
 }

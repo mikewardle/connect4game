@@ -27,5 +27,29 @@ namespace Games.Core
 		///<param name="item">The item to find.</param>
 		///<returns>The index of the first matching item, or -1 if the item was not found.</returns>
 		public static int IndexOf<T>(this IEnumerable<T> items, T item) { return items.FindIndex(i => EqualityComparer<T>.Default.Equals(item, i)); }
+
+		public static int Get4InRowFromEnumerable(this IEnumerable<int> enumerable)
+		{
+			//find if there are four of the same int in a row in the collection
+			Queue<int> all = new Queue<int>(enumerable);
+			var first = all.Dequeue();
+			int count = 1;
+			while (all.Count > 0)
+			{
+				var next = all.Dequeue();
+				if (next.Equals(first))
+				{
+					count++;
+					if (count == 4)
+						return next;
+				}
+				else
+				{
+					count = 1;
+					first = next;
+				}
+			}
+			return 0;
+		}
 	}
 }

@@ -44,8 +44,10 @@ namespace Games.Connect4
 		{
 			get
 			{
-				//need to implement the logic of checking for four in a row
-				return false;
+				int winner =  Board.GetPlayerWithFourInRow();
+				if (winner > 0)
+					WriteLineToDisplay(String.Format("Player {0} has won", winner));
+				return winner > 0;
 			}
 			
 		}
