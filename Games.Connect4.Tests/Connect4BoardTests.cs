@@ -56,5 +56,20 @@ namespace Games.Connect4.Tests
 			Assert.AreEqual(3, board.Columns[1][0].PlayerIndex);
 		}
 
+		[TestMethod]
+		public void ColumnFullReturnsTrueIfFull()
+		{
+			var board = new Connect4Board(2, 2);
+			board.Columns[0][0].PlayerIndex = 1;
+			board.Columns[0][1].PlayerIndex = 1;
+			Assert.IsTrue(board.ColumnFull(1));
+		}
+
+		[TestMethod]
+		public void ColumnFullReturnsFalseIfNotFull()
+		{
+			var board = new Connect4Board(2, 2);
+			Assert.IsFalse(board.ColumnFull(1));
+		}
 	}
 }

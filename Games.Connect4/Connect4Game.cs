@@ -53,7 +53,7 @@ namespace Games.Connect4
 		public void Display()
 		{
 			ClearDisplay();
-			DisplayBoard();
+			Board.Display(WriteLineToDisplay);
 			DisplayMessages();
 		}
 
@@ -63,12 +63,6 @@ namespace Games.Connect4
 			{
 				WriteLineToDisplay(message);
 			}
-		}
-
-		private void DisplayBoard()
-		{
-			//need to loop through all rows and diplay them
-			
 		}
 
 		public void ProcessNextPlayer()

@@ -10,7 +10,10 @@ namespace Games.Connect4.Players
 		{
 			WriteLinetoDisplay("The computer is thinking");
 			Thread.Sleep(2000);
-			return rand.Next(1, board.ColumnCount);
+			int column = rand.Next(1, board.ColumnCount);
+			while (board.ColumnFull(column))
+				column = rand.Next(1, board.ColumnCount);
+			return column;
 		}
 	}
 }

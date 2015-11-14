@@ -28,6 +28,36 @@ namespace Games.Connect4
 			var indexOfFirstEmptyCell = column.FindIndex(x => x.PlayerIndex == 0);
 			column[indexOfFirstEmptyCell].PlayerIndex = playerId;
 		}
+
+		public bool ColumnFull(int column)
+		{
+			return Columns[column-1].All(x => x.PlayerIndex > 0);
+		}
+
+		internal void Display(Action<object> WriteLineToDisplay)
+		{
+			var margin = "\t";
+			WriteLineToDisplay(String.Empty);
+
+			var spacer = String.Join("---", Enumerable.Range(1, ColumnCount).Select(x => "-").ToArray());
+			WriteLineToDisplay(margin + spacer);
+
+			for (int i=RowCount -1 ; i >=0 ;i--)
+			{
+				var r= Columns.Select(x => x.Skip(i).First().PlayerIndex).Select(x=> MapToSymbol(x));
+				var row = String.Join(" | ", r.ToArray());
+				WriteLineToDisplay(margin + row);
+				WriteLineToDisplay(margin + spacer);
+			}
+			WriteLineToDisplay(String.Empty);
+		}
+
+		private string MapToSymbol(int x)
+		{
+			if (x == 0)
+				return " ";
+			return x == 1 ? "x" : "o";
+		}
 	}
 
 }

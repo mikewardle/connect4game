@@ -8,9 +8,12 @@ namespace Games.Connect4.Players
 		{
 			var columnSelected =  QueryPlayer();
 			int column = 0;
-			while (!Int32.TryParse(columnSelected, out column) || column < 1|| column > board.ColumnCount)
+			while (!Int32.TryParse(columnSelected, out column) || 
+				column < 1|| 
+				column > board.ColumnCount || 
+				board.ColumnFull(column))
 			{
-				WriteLineToDisplay(String.Format("Please enter a number between 1 and {0}", board.ColumnCount));
+				WriteLineToDisplay(String.Format("Please enter a number between 1 and {0} where column is not full.", board.ColumnCount));
 				columnSelected = QueryPlayer();
 			}
 			return column;
