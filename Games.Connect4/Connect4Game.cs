@@ -27,5 +27,27 @@ namespace Games.Connect4
 			if (Player1 == null || Player2 == null)
 				throw new InvalidPlayerTypeException();
 		}
+
+		public bool Finished
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+			}
+			set
+			{
+				throw new System.NotImplementedException();
+			}
+		}
+
+		public void Display()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void ProcessNextPlayer()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

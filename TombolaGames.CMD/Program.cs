@@ -9,7 +9,23 @@ namespace TombolaGames.CMD
 	{
 		static void Main(string[] args)
 		{
-			var game = CreateGame();
+			while(true)
+			{
+				var game = CreateGame();
+				//display initial state of the game
+				game.Display();
+				while(!game.Finished)
+				{
+					//process the turn, will include prompts of the player to move etc
+					game.ProcessNextPlayer();
+					//display the new state of the game (will handle the display of win messages)
+					game.Display();
+				}
+				Console.WriteLine("Play again? (y/n)");
+				var res = Console.ReadLine();
+				if (!res.StartsWith("y", StringComparison.OrdinalIgnoreCase))
+					break;
+			}
 		}
 
 		private static IGame CreateGame()
