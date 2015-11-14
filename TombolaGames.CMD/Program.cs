@@ -30,6 +30,7 @@ namespace TombolaGames.CMD
 
 		private static IGame CreateGame()
 		{
+
 			Console.WriteLine("Would you like to play a 1 or 2 player game?");
 			int numberOfPlayers = -1;
 			while (numberOfPlayers < 1 || numberOfPlayers > 2)
@@ -37,9 +38,16 @@ namespace TombolaGames.CMD
 				Console.WriteLine("Please enter 1 or 2.");
 				Int32.TryParse(Console.ReadLine(), out numberOfPlayers);
 			}
+			IGame game;
 			if (numberOfPlayers == 1)
-				return new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4ComputerPlayer());
-			return new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4HumanPlayer());
+				game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4ComputerPlayer());
+			game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4HumanPlayer());
+
+			game.WriteLineToDisplay = (obj) => Console.WriteLine(obj);
+			game.ClearDisplay = () => Console.Clear();
+			game.QueryPlayer = () => Console.ReadLine();
+
+			return game;
 		}
 	}
 }

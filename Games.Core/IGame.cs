@@ -1,4 +1,5 @@
 ﻿
+using System;
 namespace Games.Core
 {
 	public interface IGame
@@ -7,5 +8,9 @@ namespace Games.Core
 		void Display();
 
 		void ProcessNextPlayer();
+
+		Action ClearDisplay { get; set; }
+		Action<object> WriteLineToDisplay { get; set; }
+		Func<string> QueryPlayer { get; set; }
 	}
 }
