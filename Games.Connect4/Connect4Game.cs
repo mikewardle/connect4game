@@ -1,6 +1,7 @@
 ﻿using Games.Connect4.Players;
 using Games.Core;
 using Games.Core.Exceptions;
+using System.Collections.Generic;
 
 namespace Games.Connect4
 {
@@ -10,6 +11,7 @@ namespace Games.Connect4
 		public int Columns { get; private set; }
 		public Connect4Player Player1 { get; private set; }
 		public Connect4Player Player2 { get; private set; }
+		private Queue<Connect4Player> PlayerQueue = new Queue<Connect4Player>();
 
 		public Connect4Game(int rows, int columns, IPlayer player1, IPlayer player2)
 		{
@@ -26,28 +28,36 @@ namespace Games.Connect4
 
 			if (Player1 == null || Player2 == null)
 				throw new InvalidPlayerTypeException();
+
+			PlayerQueue.Enqueue(Player1);
+			PlayerQueue.Enqueue(Player2);
 		}
 
 		public bool Finished
 		{
 			get
 			{
-				throw new System.NotImplementedException();
+				//need to implement the logic of checking for four in a row
+				return false;
 			}
-			set
-			{
-				throw new System.NotImplementedException();
-			}
+			
 		}
 
 		public void Display()
 		{
+			//need to be able to inject the display and perform it somehow
 			throw new System.NotImplementedException();
 		}
 
 		public void ProcessNextPlayer()
 		{
-			throw new System.NotImplementedException();
+			//get the player
+			var player = PlayerQueue.Dequeue();
+
+			//todo - process the turn, that is ask where to place the counter and add it to the board
+
+			//finally add the player back to the queue
+			PlayerQueue.Enqueue(player);
 		}
 	}
 }
