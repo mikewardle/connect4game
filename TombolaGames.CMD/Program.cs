@@ -41,7 +41,8 @@ namespace TombolaGames.CMD
 			IGame game;
 			if (numberOfPlayers == 1)
 				game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4ComputerPlayer());
-			game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4HumanPlayer());
+			else
+				game =  new Connect4Game(7, 6, new Connect4HumanPlayer(), new Connect4HumanPlayer());
 
 			game.WriteLineToDisplay = (obj) => Console.WriteLine(obj);
 			game.ClearDisplay = () => Console.Clear();

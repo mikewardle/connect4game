@@ -1,4 +1,5 @@
 ﻿using Games.Core;
+using System;
 
 namespace Games.Connect4.Players
 {
@@ -6,6 +7,6 @@ namespace Games.Connect4.Players
 	{
 		public int PlayerNumber { get; set; }
 
-		internal abstract string GetColumnSelected(System.Func<string> QueryPlayer);
+		internal abstract int GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLineToDisplay, int minValue, int maxValue);
 	}
 }

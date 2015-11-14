@@ -81,13 +81,8 @@ namespace Games.Connect4
 
 			//process the turn, that is ask where to place the counter
 			WriteLineToDisplay(String.Format("Player {0}, please select a columns to add a counter to (1-{1}).", player.PlayerNumber, Columns));
-			var columnSelected = player.GetColumnSelected(QueryPlayer);
-			int column = 0;
-			while (!Int32.TryParse(columnSelected, out column) || column <1 || column >Columns)
-			{
-				WriteLineToDisplay(String.Format("Please enter a number between 1 and {0}", Columns));
-				columnSelected = player.GetColumnSelected(QueryPlayer);
-			}
+			var columnSelected = player.GetColumnSelected(QueryPlayer, WriteLineToDisplay, 1, Columns);
+			
 			//todo -  add it to the board
 
 			//finally add the player back to the queue

@@ -1,11 +1,16 @@
 ﻿
+using System;
+using System.Threading;
 namespace Games.Connect4.Players
 {
 	public class Connect4ComputerPlayer :Connect4Player
 	{
-		internal override string GetColumnSelected(System.Func<string> QueryPlayer)
+		private static Random rand = new Random();
+		internal override int  GetColumnSelected(Func<string> QueryPlayer, Action<object> WriteLinetoDisplay, int minValue, int maxValue)
 		{
-			throw new System.NotImplementedException();
+			WriteLinetoDisplay("The computer is thinking");
+			Thread.Sleep(2000);
+			return rand.Next(minValue, maxValue);
 		}
 	}
 }
