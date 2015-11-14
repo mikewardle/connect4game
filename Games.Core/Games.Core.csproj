@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidGameConfigurationException.cs" />
+    <Compile Include="Exceptions\InvalidPlayerTypeException.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
