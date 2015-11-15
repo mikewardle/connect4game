@@ -76,6 +76,18 @@ namespace Games.Connect4
 					return index;
 			}
 			//todo check diagonals
+			foreach (var diagonal in GridHelper.GetNEDiagonals(rows:RowCount,columns:ColumnCount,minLength:4))
+			{
+				var index = diagonal.Select(x => Columns[x.Item1][x.Item2].PlayerIndex).Get4InRowFromEnumerable();
+				if (index > 0)
+					return index;
+			}
+			foreach (var diagonal in GridHelper.GetNWDiagonals(rows: RowCount, columns: ColumnCount, minLength:4))
+			{
+				var index = diagonal.Select(x => Columns[x.Item1][x.Item2].PlayerIndex).Get4InRowFromEnumerable();
+				if (index > 0)
+					return index;
+			}
 			return 0;
 		}
 

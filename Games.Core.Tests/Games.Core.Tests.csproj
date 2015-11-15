@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="IEnumerabeExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GridHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Games.Core\Games.Core.csproj">

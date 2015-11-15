@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\InvalidGameConfigurationException.cs" />
     <Compile Include="Exceptions\InvalidPlayerTypeException.cs" />
+    <Compile Include="GridHelper.cs" />
     <Compile Include="IEnumerableExtensionMethods.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IPlayer.cs" />
